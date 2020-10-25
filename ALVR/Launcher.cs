@@ -377,6 +377,7 @@ namespace ALVR
             connectedPanel.Hide();
             findingPanel.Show();
             messagePanel.Hide();
+            UpdateConnectionState(false);
         }
 
         private void ShowConnectedPanel()
@@ -384,6 +385,7 @@ namespace ALVR
             connectedPanel.Show();
             findingPanel.Hide();
             messagePanel.Hide();
+            UpdateConnectionState(true);
         }
 
         private void UpdateServerStatus()
@@ -628,7 +630,7 @@ namespace ALVR
 
         private void RunConnectCommand(string args)
         {
-            var command = connectCommandTextBox.Text;
+            var command = Properties.Settings.Default.connectCommand;
             if (command == "")
             {
                 return;
@@ -638,7 +640,7 @@ namespace ALVR
 
         private void RunDisconnectCommand()
         {
-            var command = disconnectCommandTextBox.Text;
+            var command = Properties.Settings.Default.disconnectCommand;
             if (command == "")
             {
                 return;
